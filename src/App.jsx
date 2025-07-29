@@ -5,6 +5,7 @@ import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import Header from './components/Header'
 import PostsPage from './pages/PostsPage'
+import PostDetail from './pages/PostDetail'
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
         <Route path='/about' element={<AboutPage />} />
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/posts' element={<PostsPage />} />
+        
+        {/* Динамикалық бет */}
+        <Route path='/posts/:id' element={<PostDetail />} />
         
         {/* Егер қате URL болса онда осы бет ашылады */}
         <Route path='*' element={
