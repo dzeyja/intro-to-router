@@ -8,14 +8,13 @@ import PostsPage from './pages/PostsPage'
 import PostDetail from './pages/PostDetail'
 
 function App() {
-
   
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/about' element={<AboutPage />} />
+        <Route path='/about' element={<AboutPage />}/>
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/posts' element={<PostsPage />} />
         
