@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage({ setIsAuth }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Email: ${email}\nPassword: ${password}`);
+
+    navigate('/')
     // Здесь может быть логика логина, запрос на сервер и т.д.
   };
 

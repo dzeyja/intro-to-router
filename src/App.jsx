@@ -6,17 +6,30 @@ import ContactPage from './pages/ContactPage'
 import Header from './components/Header'
 import PostsPage from './pages/PostsPage'
 import PostDetail from './pages/PostDetail'
+import LoginPage from './pages/LoginPage'
+import { useState } from 'react'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false)
   
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/about' element={<AboutPage />}/>
+        <Route path='/about' element={
+          <ProtectedRoute isAuth={isAuth}>
+            <AboutPage />
+          </ProtectedRoute>
+          }/>
         <Route path='/contact' element={<ContactPage />} />
-        <Route path='/posts' element={<PostsPage />} />
+        <Route path='/posts' element={
+          <ProtectedRoute isAuth={isAuth}>
+            <PostsPage />
+          </ProtectedRoute>
+          } />
+        <Route path='/login' element={<LoginPage setIsAuth={setIsAuth} />} />
         
         {/* Динамикалық бет */}
         <Route path='/posts/:id' element={<PostDetail />} />
